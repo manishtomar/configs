@@ -1,0 +1,28 @@
+[alias]
+    ci = commit
+    st = status
+    br = branch
+    co = checkout
+    lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    lga = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    unstage = reset HEAD
+    stl = stash list
+    std = stash drop
+    poh = push origin HEAD
+
+[color]
+    status = auto
+    diff = auto
+    branch = auto
+    interactive = auto
+
+[diff]
+    tool = vimdiff
+
+[user]
+    name = Manish Tomar
+
+[core]
+    editor=vim
+    excludesfile = ~/.gitignore
