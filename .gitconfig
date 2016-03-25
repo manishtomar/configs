@@ -10,6 +10,7 @@
     stl = stash list
     std = stash drop
     poh = push origin HEAD
+    p = pull -p
 
 [color]
     status = auto
