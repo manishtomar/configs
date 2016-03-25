@@ -28,6 +28,7 @@ set ic scs " Ignore case unless both upper and lower case is typed
 " show cursor position at all times
 set ruler
 set number  "show line numbers
+set cursorline "show mild cursor line
 
 " showmatch: Show the matching bracket for the last ')'?
 set showmatch
