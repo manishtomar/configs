@@ -14,13 +14,20 @@ Plugin 'VundleVim/Vundle.vim'
 
 " plugins
 Plugin 'ctrlpvim/ctrlp.vim'
+"Plugin 'Valloric/YouCompleteMe'
+Plugin 'elzr/vim-json'
+Plugin 'sukima/xmledit'
+"Plugin 'LucHermitte/lh-vim-lib'
+"Plugin 'LucHermitte/local_vimrc'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" ctrlp working path is nearest ancestor containing .git dir
-let g:ctrlp_working_path_mode = 'r'
+" ctrlp working path is nearest ancestor containing .git dir starting from cwd
+let g:ctrlp_working_path_mode = 'w'
+let g:ctrlp_switch_buffer=0
+
 
 set showcmd     "display incomplete commands
 
@@ -47,6 +54,7 @@ set autoread    "" Automatically reload file
 set hlsearch " Highlight search items
 set is  " Search as you type
 set ic scs " Ignore case unless both upper and lower case is typed
+set scrolloff=5 " Ensure 5 lines are above or below cursor
 
 " show cursor position at all times
 set ruler
@@ -73,7 +81,7 @@ colorscheme greens
 
 set guifont=Monaco:h12
 
-set guioptions-=r   "" Disable scrollbar to get more space
+" set guioptions+=r   "" Disable scrollbar to get more space
 set guioptions+=a   "" Auto copying on visual select
 
 set colorcolumn=80
@@ -83,12 +91,11 @@ autocmd BufWritePre *.py :%s/\s\+$//e
 
 set wrapscan  ""Wrap search
 
-"" This didn't work due to python.vim. Made changes there
-"" set indentkeys-=:   "" Do not indent with ':'
-"" set indentkeys-=<:>   "" Do not indent with ':'
-
 "" Map window movement keys
 map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
+
+"" Find-in-files current word; opens in quicklist window
+map <F3> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
