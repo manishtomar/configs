@@ -1,0 +1,8 @@
+# enable syntax completion
+import rlcompleter, readline
+readline.parse_and_bind("tab:complete")
+
+# Display op using pprint in REPL
+import sys
+from pprint import pprint
+sys.displayhook = pprint
