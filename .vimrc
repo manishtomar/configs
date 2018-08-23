@@ -14,19 +14,30 @@ Plugin 'VundleVim/Vundle.vim'
 
 " plugins
 Plugin 'ctrlpvim/ctrlp.vim'
-"Plugin 'Valloric/YouCompleteMe'
 Plugin 'elzr/vim-json'
-Plugin 'sukima/xmledit'
-"Plugin 'LucHermitte/lh-vim-lib'
-"Plugin 'LucHermitte/local_vimrc'
+Plugin 'fatih/vim-go'
+Plugin 'shmup/vim-sql-syntax'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'ruanyl/vim-gh-line'
+Plugin 'vim-airline/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+" Save file using goimports
+let g:go_fmt_command = "goimports"
+
 " ctrlp working path is nearest ancestor containing .git dir starting from cwd
 let g:ctrlp_working_path_mode = 'w'
 let g:ctrlp_switch_buffer=0
+" increase size of window from 10 to 20
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
+
+" markdown changes
+" disable folding
+let g:vim_markdown_folding_disabled = 1
 
 
 set showcmd     "display incomplete commands
@@ -36,7 +47,6 @@ set nowrap
 set sidescroll=5
 
 "" Whitespace
-set expandtab       " use spaces, not tabs
 set ts=4
 set sw=4
 set sts=0
@@ -84,7 +94,7 @@ set guifont=Monaco:h12
 " set guioptions+=r   "" Disable scrollbar to get more space
 set guioptions+=a   "" Auto copying on visual select
 
-set colorcolumn=80
+set colorcolumn=100
 
 "" Remove trailing whitespace when saving
 autocmd BufWritePre *.py :%s/\s\+$//e
@@ -99,3 +109,7 @@ map <c-h> <c-w>h
 
 "" Find-in-files current word; opens in quicklist window
 map <F3> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+
+"" When opening files from quickfix window, open in existing buffer if available
+"" or new vertical split window
+set switchbuf=useopen
