@@ -21,6 +21,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'ruanyl/vim-gh-line'
 Plugin 'vim-airline/vim-airline'
+Plugin 'martinda/Jenkinsfile-vim-syntax'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -87,7 +88,7 @@ set t_Co=256
 syntax on
 
 let macvim_skip_colorscheme=1
-colorscheme greens
+colorscheme blackboard
 
 set guifont=Monaco:h12
 
